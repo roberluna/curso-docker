@@ -1,14 +1,12 @@
-version: "3.8"
+version: '3.8'
 
 services:
   app:
     build: ./frontend
     ports:
       - 80:5173
-    volumes:
+    volumes: 
       - ./frontend/src:/app/src
-    environment:
-      VITE_API_URL: http://localhost:3000
   api:
     build: ./backend
     ports:
@@ -25,7 +23,6 @@ services:
       DB_URL: mongodb://db/gamifytest
     volumes:
       - ./backend/app:/app/app
-      - ./backend/tests:/app/tests
     depends_on:
       - db
     command: npm test
@@ -37,4 +34,4 @@ services:
       - gamify:/data/db
 
 volumes:
-  gamify:
+  gamify: 
